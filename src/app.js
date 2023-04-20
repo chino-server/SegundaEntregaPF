@@ -17,6 +17,7 @@ app.use (express.urlencoded({extended:true}))
 app.use (express.static (__dirname + '/public'))
 
 //Configuración de motor de plantilla
+
 app.engine('handlebars', handlebars.engine())
 app.set('views', __dirname + '/views')
 app.set('view engine', 'handlebars')

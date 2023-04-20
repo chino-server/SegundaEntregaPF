@@ -2,11 +2,12 @@ import { Router } from "express";
 import ProductManager from "../dao/productManagerMongo.js";
 
 
+
 const router = Router();
 const productManager = new ProductManager();
 const notFound = { error: "Product not found" };
 
-router.get("/products", async (req, res) => {
+router.get("/products", async (req, res) => { 
   const limit = req.query.limit;
   const products = await productManager.getAll();
   if (!limit) {
@@ -18,14 +19,15 @@ router.get("/products", async (req, res) => {
 });
 
 router.get ('/productsPrueba', async (req,res)=>{
-    const {limit}= req.query
-    const lim = Number(limit)
+    const {limit,page}= req.query
+    
     if (!limit){
         const products = await productManager.getAll();
         res.json (products)
     }else{
-    const productoPaginate = await productManager.funcionPrueba(lim)
+    const productoPaginate = await productManager.funcionPrueba(+limit,page)
     res.json (productoPaginate)
+    console.log ('Aqui entra');
     }
     
 

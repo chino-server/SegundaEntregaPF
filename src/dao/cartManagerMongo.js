@@ -11,16 +11,15 @@ export default class CartManager {
     }
   }
 
-  async getById(id) {
+  async getCartById(id) {
     try {
-      const cart = await cartsModel.findOne({ _id: id }).populate("products");
-      return cart;
+        // Busco el carrito por su id y lo devuelvo con los productos populados (con toda su información)
+        const cart = await cartsModel.findById(id).populate('products.product');
+        return cart;
     } catch (error) {
-      console.log(
-        `Error buscando el carrito con el id ${id}: ${error.message}`
-      );
+        console.log(error);
     }
-  }
+}
 
   async addToCart(cid, pid) {
     try {
@@ -54,3 +53,5 @@ export default class CartManager {
     }
   }
 }
+
+
