@@ -1,9 +1,15 @@
-<h1>Cart</h1>
-<ul>
-  {{#each cart.productsArray}}
-    <li>Product: {{product}}</li>
-     <li>Category: {{category}}</li>
-    <li>Quantity: {{quantity}}</li>
-     <li>Price: {{price}}</li>
-  {{/each}}
-</ul>
+
+
+<div>
+
+    <h1>Carrito</h1>
+    {{#each products}}
+        <div>
+            <h1>{{title}}</h1>
+            <h2>{{description}}</h2>
+            <h3>${{price}}</h3>
+            <h4>{{stock}}</h4>
+        </div>
+    {{/each}}
+
+</div>

@@ -1,57 +1,91 @@
-<h1>Bienvenido a mi nueva entrega!</h1>
-
-<h2 align='center'>List of existing products online</h2>
-
-
-
-   <section class="container">
-    <div class="row">
-        <div class="col-12">
-            <h1 class="text-center">Productos en tiempo real</h1>
-        </div>
+<section class="container">
+<h1>Mi nueva entrega la tercera es la vencida :-</h1>
+  <div class="row">
+    <div class="col-12">
+      <h1 class="text-center">Productos en tiempo real</h1>
     </div>
-    <div class="row">
-        <div class="col-12">
-            <table class="table table-striped">
-                <thead>
-                    <tr>
-                        <th scope="col">Nombre</th>
-                        <th scope="col">Descripcion</th>
-                        <th scope="col">Precio</th>
-                        <th scope="col">Stock</th>
-                        <th scope="col">Acciones</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {{#each data.docs}}
-                    <tr>
-                        <td>{{title}}</td>
-                        <td>{{description}}</td>
-                        <td>{{price}}</td>
-                        <td>{{stock}}</td>
-                        <td>
-                            <button>
-                                <a href="/views/products/{{_id}}">Ver producto</a>
-                            </button>
-                        </td>
-                    </tr>
-                    {{/each}}
-                </tbody>
-            </table>
-            {{!-- paginador --}}
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">Nombre</th>
+            <th scope="col">Descripcion</th>
+            <th scope="col">Precio</th>
+            <th scope="col">Stock</th>
+            <th scope="col">Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          {{#each products.docs}}
+          <tr>
+            <td>{{title}}</td>
+            <td>{{description}}</td>
+            <td>{{price}}</td>
+            <td>{{stock}}</td>
+            <td>
+              <button>
+                <a href="/views/products/{{_id}}">Ver producto</a>
+              </button>
+            </td>
+          </tr>
+          {{/each}}
+        </tbody>
+      </table>
+      {{!-- paginador --}}
 
-            {{#if data.hasPrevPage}}
-            <button>
-                <a href="/views/products/page/{{data.prevPage}}">Anterior</a>
-            </button>
-            {{/if}}
+      {{#if products.hasPrevPage}}
+      <button>
+        <a href="/views/products/page/{{products.prevPage}}">Anterior</a>
+      </button>
+      {{/if}}
 
-            {{#if data.hasNextPage}}
-            <button>
-                <a href="/views/products/page/{{data.nextPage}}">Siguiente</a>
-            </button>
-            {{/if}}
+      {{#if products.hasNextPage}}
+      <button>
+        <a href="/views/products/page/{{products.nextPage}}">Siguiente</a>
+      </button>
+      {{/if}}
 
-        </div>
     </div>
+  </div>
 </section>
+
+<style>
+  .table thead {
+    background-color: #007bff;
+    color: #fff;
+  }
+
+  .table th {
+    text-align: center;
+  }
+
+  .table td,
+  .table th {
+    border: 1px solid #ccc;
+  }
+
+  button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+  }
+
+  button {
+    display: block;
+    margin: 0 auto;
+  }
+
+  .table {
+    font-size: 36px;
+  }
+</style>
+
+
+
+
+
+
